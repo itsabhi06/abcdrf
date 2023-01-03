@@ -1,0 +1,20 @@
+pipeline{
+         agent any
+	 stages{
+	 stage('clean workspace'){
+	 steps{
+	 sh 'rm-r *'
+	 }
+	 }
+	 stage('clone'){
+	 steps{
+	 sh 'git clone https://github.com/itsabhi06/abcdrf.git -b master'
+	 }
+	 }
+	 stage('deploy'){
+	 steps{
+	 sh 'mv abcd/* ../../../../www/html'
+	 }
+	 }
+	 }
+	 }
